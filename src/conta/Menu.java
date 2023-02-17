@@ -2,15 +2,28 @@ package conta;
 
 import java.util.Scanner;
 
+import conta.model.Conta;
+import conta.util.Cores;
+
 public class Menu {
 	
 	static Scanner leia = new Scanner(System.in);
 
 	public static void main(String[] args) {
+		Conta c = new Conta(1, 123, 1, "Fernando Alves", 1723.24f);
 		int opcao;
 		
+		c.visualizar();
+		System.out.println(c.getSaldo());
+		
+		c.depositar(300);
+		c.sacar(10000);
+		System.out.println();
+		System.out.println(c.getSaldo());
+		System.out.println();
+		
 		while(true) {
-			System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+			System.out.println(Cores.TEXT_GREEN_BOLD + Cores.ANSI_WHITE_BACKGROUND+"¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 			System.out.println("                                                                   ");
 			System.out.println("                          BANCO WATT´S                             ");
 			System.out.println("                                                                   ");
@@ -28,7 +41,7 @@ public class Menu {
 			System.out.println("                                                                   ");
 			System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 			System.out.println("¬¬¬Digite sua opção:                                               ");
-			System.out.println("                                                                   ");
+			System.out.println("                                                                   " + Cores.TEXT_RESET);
 			opcao = leia.nextInt();
 			if(opcao == 9) {
 				System.out.println("Banco Watt´s: menores taxas, melhores investimentos!");
@@ -60,10 +73,9 @@ public class Menu {
 			case 8 ->{
 				System.out.println("Transferência entre contas\n\n");
 			}
-			default ->{
-				System.out.println("Opção inválida, tente novamente...");
+			default ->System.out.println("Opção inválida, tente novamente...");
 			}
-			}
+			
 		}
 
 	}
