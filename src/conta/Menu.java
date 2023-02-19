@@ -23,7 +23,8 @@ public class Menu {
 		System.out.println();
 		
 		while(true) {
-			System.out.println(Cores.TEXT_GREEN_BOLD + Cores.ANSI_WHITE_BACKGROUND+"¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+			System.out.println(Cores.TEXT_GREEN_BOLD + Cores.ANSI_WHITE_BACKGROUND);
+			System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 			System.out.println("                                                                   ");
 			System.out.println("                          BANCO WATT´S                             ");
 			System.out.println("                                                                   ");
@@ -41,7 +42,8 @@ public class Menu {
 			System.out.println("                                                                   ");
 			System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 			System.out.println("¬¬¬Digite sua opção:                                               ");
-			System.out.println("                                                                   " + Cores.TEXT_RESET);
+			System.out.println("                                                                   ");
+			System.out.println(Cores.TEXT_RESET);
 			opcao = leia.nextInt();
 			if(opcao == 9) {
 				System.out.println("Banco Watt´s: menores taxas, melhores investimentos!");
