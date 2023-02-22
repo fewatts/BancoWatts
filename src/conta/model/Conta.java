@@ -70,7 +70,7 @@ public class Conta {
 		System.out.println("Número da agência: "+ this.agencia);
 		System.out.println("Tipo de conta: "+ tipo);
 		System.out.println("Nome do titular: "+ this.titular);
-		System.out.println("Saldo da conta: "+ this.saldo + "\n\n");
+		System.out.println("Saldo da conta: "+ this.saldo);
 	}
 	
 }
