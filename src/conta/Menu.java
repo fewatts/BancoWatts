@@ -1,5 +1,6 @@
 package conta;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -90,17 +91,20 @@ public class Menu {
 					}
 					
 				}
+				keyPress();
 				
 			}
 			case 2 ->{
 				System.out.println("¬¬¬¬¬ Listar todas as contas ¬¬¬¬¬\n\n");
 				contas.listasTodas();
+				keyPress();
 			}
 			case 3 ->{
 				System.out.println("¬¬¬¬¬ Consultar dados da conta por número ¬¬¬¬¬");
 				System.out.println("Número da conta: ");
 				numero = leia.nextInt();
 				contas.procurarPorNumero(numero);
+				keyPress();
 			}
 			case 4 ->{
 				System.out.println("¬¬¬¬¬ Atualizar dados da conta ¬¬¬¬¬\n\n");
@@ -131,6 +135,7 @@ public class Menu {
 					
 			    }else
 				   System.out.println("A conta não foi encontrada...");
+				keyPress();
 				
 			}
 			case 5 ->{
@@ -138,6 +143,7 @@ public class Menu {
 				System.out.println("Número da conta: ");
 				numero = leia.nextInt();
 				contas.deletar(numero);
+				keyPress();
 			}
 			case 6 ->{
 				System.out.println("¬¬¬¬¬ Saque ¬¬¬¬¬");
@@ -146,6 +152,7 @@ public class Menu {
 				System.out.println("Valor de saque: ");
 				valor = leia.nextFloat();
 				//método sacar();
+				keyPress();
 			}
 			case 7 ->{
 				System.out.println("¬¬¬¬¬ Depósito ¬¬¬¬¬");
@@ -154,6 +161,7 @@ public class Menu {
 				System.out.println("Valor de depósito: ");
 				valor = leia.nextFloat();
 				//método depositar();
+				keyPress();
 			}
 			case 8 ->{
 				System.out.println("¬¬¬¬¬ Transferência entre contas ¬¬¬¬¬");
@@ -164,10 +172,25 @@ public class Menu {
 				System.out.println("Valor de transferência: ");
 				valor = leia.nextFloat();
 				//método transferência();
+				keyPress();
 			}
 			default ->System.out.println("Opção inválida, tente novamente...");
 			}
 			System.out.println(Cores.TEXT_RESET);
+		}
+		
+	}
+	public static void keyPress() {
+
+		try {
+
+			System.out.println(Cores.TEXT_RESET + "\n\nPressione Enter para Continuar...");
+			System.in.read();
+
+		} catch (IOException e) {
+
+			System.out.println("Você pressionou uma tecla diferente de enter!");
+
 		}
 		
 	}
