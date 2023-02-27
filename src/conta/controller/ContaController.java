@@ -8,7 +8,7 @@ import conta.repository.ContaRepository;
 public class ContaController implements ContaRepository{
 	
 	private ArrayList<Conta> listaContas = new ArrayList<Conta>();
-	private int numero;
+	private int numero = 0;
 
 	@Override
 	public void procurarPorNumero(int numero) {
@@ -57,28 +57,42 @@ public class ContaController implements ContaRepository{
 
 	@Override
 	public void sacar(int numero, float valor) {
-		// TODO Auto-generated method stub
+		var conta = buscarNaCollection(numero);
+		if(conta != null){
+			if(conta.sacar(valor))
+				System.out.println("O saque foi efetuado com sucesso!");
+		}else
+			System.out.printf("Conta %d não encontrada...", numero);
 		
 	}
 
 	@Override
 	public void depositar(int numero, float valor) {
-		// TODO Auto-generated method stub
+		var conta = buscarNaCollection(numero);
+		if(conta != null){
+			conta.depositar(valor);
+			System.out.println("O depósito foi efetuado com sucesso!");
+		}else
+			System.out.printf("Conta %d não encontrada...", numero);
 		
 	}
 
 	@Override
 	public void transferir(int numero, int numerodestino, float valor) {
-		// TODO Auto-generated method stub
+		var contaOrigem = buscarNaCollection(numero);
+		var contaDestino = buscarNaCollection(numerodestino);
+		if(contaOrigem != null && contaDestino != null){
+			if(contaOrigem.sacar(valor) == true){
+				contaDestino.depositar(valor);
+				System.out.println("A transferência foi efetuada com sucesso!");
+			}
+		}else
+			System.out.println("A conta de origrm e /ou destino não foram encontradas...");
 		
 	}
 	public int gerarNumero() {
-		if (listaContas.size() == 0 ) {
-			return numero;
-		}else {
-			numero ++;
-			return numero;
-		}
+		return ++numero;
+		
 	}
 	public Conta buscarNaCollection(int numero){
 		for(var conta : listaContas) {
@@ -93,7 +107,6 @@ public class ContaController implements ContaRepository{
 				return conta.getTipo();
 		}
 		return 0;
-		
 	}
 	
 }

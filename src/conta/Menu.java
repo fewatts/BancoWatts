@@ -136,7 +136,6 @@ public class Menu {
 			    }else
 				   System.out.println("A conta não foi encontrada...");
 				keyPress();
-				
 			}
 			case 5 ->{
 				System.out.println("¬¬¬¬¬ apagar conta ¬¬¬¬¬");
@@ -151,7 +150,7 @@ public class Menu {
 				numero = leia.nextInt();
 				System.out.println("Valor de saque: ");
 				valor = leia.nextFloat();
-				//método sacar();
+				contas.sacar(numero, valor);
 				keyPress();
 			}
 			case 7 ->{
@@ -160,7 +159,7 @@ public class Menu {
 				numero = leia.nextInt();
 				System.out.println("Valor de depósito: ");
 				valor = leia.nextFloat();
-				//método depositar();
+				contas.depositar(numero, valor);
 				keyPress();
 			}
 			case 8 ->{
@@ -171,7 +170,7 @@ public class Menu {
 				numerodestino = leia.nextInt();
 				System.out.println("Valor de transferência: ");
 				valor = leia.nextFloat();
-				//método transferência();
+				contas.transferir(numero, numerodestino, valor);
 				keyPress();
 			}
 			default ->System.out.println("Opção inválida, tente novamente...");
@@ -182,12 +181,12 @@ public class Menu {
 	}
 	public static void keyPress() {
 
-		try {
+		try{
 
 			System.out.println(Cores.TEXT_RESET + "\n\nPressione Enter para Continuar...");
 			System.in.read();
 
-		} catch (IOException e) {
+		}catch(IOException e){
 
 			System.out.println("Você pressionou uma tecla diferente de enter!");
 
