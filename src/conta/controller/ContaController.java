@@ -8,7 +8,7 @@ import conta.repository.ContaRepository;
 public class ContaController implements ContaRepository{
 	
 	private ArrayList<Conta> listaContas = new ArrayList<Conta>();
-	int numero = 1;
+	int numero = 0;
 
 	@Override
 	public void procurarPorNumero(int numero) {
@@ -98,12 +98,7 @@ public class ContaController implements ContaRepository{
 		
 	}
 	public int gerarNumero() {
-		if (listaContas.size() == 0 ) {
-			return numero;
-		}else {
-			numero ++;
-			return numero;
-		}
+			return ++numero;
 		
 	}
 	public Conta buscarNaCollection(int numero){
